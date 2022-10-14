@@ -10,8 +10,6 @@ function App() {
           {publirouter.map((route, index) => {
             const Layout = route.layout === null ? Fragment : defaultLayout;
             const Page = route.component;
-            console.log(Layout);
-            console.log(Page);
             return (
               <Route
                 key={index}

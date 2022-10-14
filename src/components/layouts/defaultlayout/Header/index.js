@@ -14,6 +14,7 @@ const cx = classNames.bind(styles);
 function Header() {
   return (
     <header className={cx("wapper")}>
+      {/* <div className={cx("wapper-1")}> */}
       <div className={cx("logo")}>
         <img
           className={cx("logo-tiktok")}
@@ -54,6 +55,7 @@ function Header() {
           <FontAwesomeIcon icon={faUser} />
         </button>
       </div>
+      {/* </div> */}
     </header>
   );
 }

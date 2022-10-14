@@ -1,4 +1,60 @@
+import classNames from "classnames/bind";
+import styles from "./Home.module.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMusic } from "@fortawesome/free-solid-svg-icons";
+
+import "./Home.module.scss";
+import api_video from "../../api_tiktok";
+import { useEffect } from "react";
+
+const cx = classNames.bind(styles);
 function Home() {
-  return <h1>Home</h1>;
+  useEffect(() => {}, []);
+  return (
+    <>
+      {api_video.map((e) => (
+        <div className={cx("Home-conten-2t")}>
+          <div className={cx("Home-content")}>
+            <div className={cx("Home-content-containt")}>
+              <div className={cx("Home-content-containt-box")}>
+                <img
+                  className={cx("Home-content-containt-box-img")}
+                  src={e.img}
+                ></img>
+              </div>
+              <div className={cx("Home-content-containt-decrition")}>
+                <p className={cx("Home-content-containt-decrition-text")}>
+                  {e.name}
+                </p>
+                <span className={cx("Home-content-containt-decrition-span")}>
+                  đùa tí mà căng
+                </span>
+                <span className={cx("Home-content-containt-decrition-tag")}>
+                  {e.hagtag}
+                </span>
+                <span className={cx("follow")}>Follow</span>
+                <p className={cx("Home-content-containt-music")}>
+                  <FontAwesomeIcon
+                    className={cx("Home-content-containt-music-icon")}
+                    icon={faMusic}
+                  ></FontAwesomeIcon>
+                  nhạc nền - Đà Lạt +
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className={cx("Home-content-containt-video")}>
+            <video
+              className={cx("Home-content-containt-video-1")}
+              controls
+              src={e.video}
+              type="video/mp4"
+            ></video>
+          </div>
+          <span className={cx("defiant")}></span>
+        </div>
+      ))}
+    </>
+  );
 }
 export default Home;
