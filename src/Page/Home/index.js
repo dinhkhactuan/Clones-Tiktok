@@ -2,10 +2,10 @@ import classNames from "classnames/bind";
 import styles from "./Home.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMusic } from "@fortawesome/free-solid-svg-icons";
-
+import { useEffect } from "react";
 import "./Home.module.scss";
 import api_video from "../../api_tiktok";
-import { useEffect } from "react";
+import Button_follow from "../../components/Button/Button_follow/Button_follow";
 
 const cx = classNames.bind(styles);
 function Home() {
@@ -32,7 +32,7 @@ function Home() {
                 <span className={cx("Home-content-containt-decrition-tag")}>
                   {e.hagtag}
                 </span>
-                <span className={cx("follow")}>Follow</span>
+                {true && <Button_follow>Follow</Button_follow>}
                 <p className={cx("Home-content-containt-music")}>
                   <FontAwesomeIcon
                     className={cx("Home-content-containt-music-icon")}

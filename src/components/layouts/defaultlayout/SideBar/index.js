@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom";
 import classNames from "classnames/bind";
 import styles from "./SideBar.module.scss";
 import "./SideBar.module.scss";
+import Button_login from "../../../Button/Button_login/Button_login";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHome,
@@ -13,17 +15,21 @@ function sidebar() {
   return (
     <div className={cx("Side-Bar")}>
       <div className={cx("Side-Bar-menu")}>
-        <p className={cx("Side-Bar-text")}>
-          <FontAwesomeIcon className={cx("icon-menu")} icon={faHome} />
-          Dành cho bạn
-        </p>
-        <p className={cx("Side-Bar-text")}>
-          <FontAwesomeIcon
-            className={cx("icon-menu")}
-            icon={faUserGroup}
-          ></FontAwesomeIcon>
-          Đang follow
-        </p>
+        <Link className={cx("Side-Bar-text1", "active")} to="/">
+          <p className={cx("Side-Bar-text")}>
+            <FontAwesomeIcon className={cx("icon-menu")} icon={faHome} />
+            Dành cho bạn
+          </p>
+        </Link>
+        <Link className={cx("Side-Bar-text1")} to="/Following">
+          <p className={cx("Side-Bar-text")}>
+            <FontAwesomeIcon
+              className={cx("icon-menu")}
+              icon={faUserGroup}
+            ></FontAwesomeIcon>
+            Đang follow
+          </p>
+        </Link>
         <p className={cx("Side-Bar-text")}>
           <FontAwesomeIcon
             className={cx("icon-menu")}
@@ -32,6 +38,7 @@ function sidebar() {
           LIVE
         </p>
       </div>
+      {true && <Button_login>Đăng nhập</Button_login>}
       <span className={cx("defiant")}></span>
       <div className={cx("Side-Bar-users")}>
         <p className={cx("Side-Bar-users-text")}>Tài khoản được đề xuất</p>

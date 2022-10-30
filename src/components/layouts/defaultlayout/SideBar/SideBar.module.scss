@@ -3,9 +3,39 @@ p {
 .Side-Bar {
   position: fixed;
   left: 100px;
+  width: 356px;
+  padding: 10px;
   &-text {
     font-size: 20px;
     margin: 20px 0px;
+  }
+  &-text1 {
+    color: #000;
+    &:hover {
+      color: rgb(239, 16, 16);
+    }
+  }
+}
+.active {
+  color: rgb(239, 16, 16);
+}
+.button {
+  &-text {
+  }
+  &-login {
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+    color: rgba(254, 44, 85, 1);
+    border-color: rgba(254, 44, 85, 1);
+    background-color: rgba(255, 255, 255, 1);
+    min-width: 168px;
+    min-height: 48px;
+    font-size: 18px;
+    line-height: 25px;
+    font-weight: 600;
+    margin-top: 20px;
+    width: 100%;
   }
 }
 .icon-menu {

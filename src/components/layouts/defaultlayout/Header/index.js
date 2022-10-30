@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import classNames from "classnames/bind";
 import styles from "./Header.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -15,12 +16,14 @@ function Header() {
   return (
     <header className={cx("wapper")}>
       {/* <div className={cx("wapper-1")}> */}
-      <div className={cx("logo")}>
-        <img
-          className={cx("logo-tiktok")}
-          src="https://parentzone.org.uk/sites/default/files/styles/parent_zone_hero/public/2022-03/TikTok_Card.png?itok=v6OwxDiT"
-        ></img>
-      </div>
+      <Link to="/">
+        <div className={cx("logo")}>
+          <img
+            className={cx("logo-tiktok")}
+            src="https://parentzone.org.uk/sites/default/files/styles/parent_zone_hero/public/2022-03/TikTok_Card.png?itok=v6OwxDiT"
+          ></img>
+        </div>
+      </Link>
       <div className={cx("search")}>
         <input
           className={cx("search-video")}
@@ -38,22 +41,31 @@ function Header() {
         </button>
       </div>
       <div className={cx("active")}>
-        <span className={cx("active-text")}>
-          <FontAwesomeIcon
-            className={cx("icon-add")}
-            icon={faPlus}
-          ></FontAwesomeIcon>
-          Tải lên
-        </span>
-        <button className={cx("btn-icon-message")}>
-          <FontAwesomeIcon icon={faMessage} />
-        </button>
-        <button className={cx("btn-icon-mailbox")}>
-          <FontAwesomeIcon icon={faMailBulk} />
-        </button>
-        <button className={cx("btn-icon-user")}>
-          <FontAwesomeIcon icon={faUser} />
-        </button>
+        <Link to="/upload" className={cx("active-text")}>
+          <span>
+            <FontAwesomeIcon
+              className={cx("icon-add")}
+              icon={faPlus}
+            ></FontAwesomeIcon>
+            Tải lên
+          </span>
+        </Link>
+        <Link className={cx("button-login")} to="/Login">
+          Đăng Nhập
+        </Link>
+        {false && (
+          <>
+            <button className={cx("btn-icon-message")}>
+              <FontAwesomeIcon icon={faMessage} />
+            </button>
+            <button className={cx("btn-icon-mailbox")}>
+              <FontAwesomeIcon icon={faMailBulk} />
+            </button>
+            <button className={cx("btn-icon-user")}>
+              <FontAwesomeIcon icon={faUser} />
+            </button>
+          </>
+        )}
       </div>
       {/* </div> */}
     </header>
