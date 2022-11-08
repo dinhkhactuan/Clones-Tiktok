@@ -1,3 +1,8 @@
+.box-container {
+  display: grid;
+  grid-template-columns: 226px 226px 226px;
+  column-gap: 20px;
+}
 .box-item {
   display: grid;
   grid-template-columns: auto auto auto;

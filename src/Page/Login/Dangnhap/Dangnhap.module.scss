@@ -1,9 +1,30 @@
+.Dangnhap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgb(0, 0, 0, 0.4);
+  z-index: 1;
+}
 .dangnhap {
+  &_icon {
+    position: absolute;
+    right: 20px;
+    font-size: 30px;
+    top: 20px;
+    cursor: pointer;
+  }
+  position: relative;
+  margin: auto;
   width: 483px;
-  height: 100%;
+  max-height: 700px;
   padding: 48px 0px 0px;
   display: flex;
   flex-direction: column;
+  background-color: #fff;
+  margin-top: 50px;
+  border-radius: 8px;
   &_title {
     color: rgb(22, 24, 35);
     font-family: "IBM Plex Sans", SofiaPro, Arial, Tahoma, PingFangSC,
@@ -14,6 +35,15 @@
     text-align: center;
   }
   &_box {
+    &_span {
+      &_dangky {
+        color: red;
+        cursor: pointer;
+      }
+      text-align: center;
+      padding-bottom: 40px;
+      padding-top: 10px;
+    }
     color: rgb(22, 24, 35);
     font-family: "IBM Plex Sans", ProximaNova, Arial, Tahoma, PingFangSC,
       sans-serif;
@@ -34,9 +64,4 @@
     white-space: nowrap;
     background: rgb(255, 255, 255);
   }
-  width: 483px;
-  height: 100%;
-  padding: 48px 0px 0px;
-  display: flex;
-  flex-direction: column;
 }

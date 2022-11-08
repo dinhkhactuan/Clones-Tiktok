@@ -1,0 +1,102 @@
+.Login_email {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+  &_box {
+    transform: translateY(50px);
+    position: relative;
+    width: 483px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 8px;
+    transition: all 300ms cubic-bezier(0.075, 0.82, 0.165, 1) 0s;
+    max-height: 693px;
+    height: 80%;
+    overflow: hidden;
+    background-color: rgb(255, 255, 255);
+  }
+  &_content {
+    margin: auto;
+    height: 100%;
+    padding: 48px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    p {
+      color: #161823;
+      display: inline-block;
+      font-family: IBM Plex Sans;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 18px;
+      margin-top: 10px;
+    }
+    button {
+      &:hover {
+        background-color: rgb(67, 67, 245);
+        color: #fff;
+        transition: all 0.3s linear;
+      }
+      margin-top: 10px;
+      font-size: 16px;
+      padding: 10px;
+    }
+    &_lable {
+      color: #161823;
+      display: flex;
+      font-size: 15px;
+      font-weight: 600;
+      justify-content: space-between;
+      line-height: 22.5px;
+      margin: 0px 0px 5px;
+    }
+    &_Dangnhap {
+      color: #161823;
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 48px;
+      margin-top: 0px;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+  }
+}
+input {
+  color: #161823;
+  font-family: IBM Plex Sans;
+  line-height: 16px;
+  font-size: 16px;
+  margin: 10px 0px 5px 0px;
+  padding: 12px;
+}
+.darw {
+  margin-bottom: 20px;
+  width: 100%;
+  height: 1px;
+  background-color: #ccc;
+  margin-top: 40px;
+}
+.faArrowLeft,
+.faClose {
+  position: absolute;
+  cursor: pointer;
+}
+.faArrowLeft {
+  left: 5;
+  font-size: 30px;
+  padding: 5px;
+  margin-left: 5px;
+}
+.faClose {
+  right: 0;
+  margin-right: 25px;
+  font-size: 30px;
+  padding: 5px;
+}
+.des {
+  text-align: center;
+  &_dk {
+    color: red;
+    cursor: pointer;
+  }
+}

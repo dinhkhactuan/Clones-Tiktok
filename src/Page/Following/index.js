@@ -1,61 +1,47 @@
-// import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import classNames from "classnames/bind";
 import styles from "./Following.module.scss";
-import Button_follow from "../../components/Button/Button_follow/Button_follow";
+import data from "../../Api/api_tiktok";
+import Dangnhap from "../Login/Dangnhap/Dangnhap";
 const cx = classNames.bind(styles);
 function Following() {
+  const [check, setcheck] = useState(false);
+  const [Data, setData] = useState([]);
+  useEffect(() => {
+    data().then((res) => setData(res));
+  }, []);
   return (
-    <div className={cx("box-item")}>
-      <div className={cx("item-1", "i")}>
-        <div className={cx("box-img")}>
-          <img src="https://i.pinimg.com/originals/1c/1d/7b/1c1d7b5bb78ab62b5c025b22be9c2ea0.jpg"></img>
-        </div>
-        <div className={cx("box-user")}>
-          <div className={cx("box-user-img")}>
-            <img src="https://i.pinimg.com/originals/1c/1d/7b/1c1d7b5bb78ab62b5c025b22be9c2ea0.jpg"></img>
-          </div>
-          <div className={cx("box-decrips")}>
-            <p className={cx("box-decrips-title")}>the anh 28</p>
-            <p className={cx("box-decrips-children")}>
-              the anh 28 entertainment
-            </p>
-            <button className={cx("follow-btn")}>Follow</button>
-          </div>
-        </div>
-      </div>
+    <div className={cx("box-container")}>
+      {check && <Dangnhap />}
+      {Data.map((res) => (
+        <div className={cx("box-item")}>
+          <div className={cx("item-1", "i")}>
+            <div className={cx("box-img")}>
+              <img src={res.avatar}></img>
+            </div>
+            <div className={cx("box-user")}>
+              <div className={cx("box-user-img")}>
+                <img src={res.avatar}></img>
+              </div>
+              <div className={cx("box-decrips")}>
+                <p className={cx("box-decrips-title")}>the anh 28</p>
+                <p className={cx("box-decrips-children")}>
+                  the anh 28 entertainment
+                </p>
 
-      <div className={cx("item-2", "i")}>
-        <div className={cx("box-img")}>
-          <img src="https://i.pinimg.com/originals/1c/1d/7b/1c1d7b5bb78ab62b5c025b22be9c2ea0.jpg"></img>
-        </div>
-        <div className={cx("box-user")}>
-          <div className={cx("box-user-img")}>
-            <img src="https://i.pinimg.com/originals/1c/1d/7b/1c1d7b5bb78ab62b5c025b22be9c2ea0.jpg"></img>
-          </div>
-          <div className={cx("box-decrips")}>
-            <p className={cx("box-decrips-title")}>the anh 28</p>
-            <p className={cx("box-decrips-children")}>
-              the anh 28 entertainment
-            </p>
+                <button
+                  onClick={() => {
+                    setcheck(true);
+                  }}
+                  className={cx("follow-btn")}
+                >
+                  Follow
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div className={cx("item-3", "i")}>
-        <div className={cx("box-img")}>
-          <img src="https://i.pinimg.com/originals/1c/1d/7b/1c1d7b5bb78ab62b5c025b22be9c2ea0.jpg"></img>
-        </div>
-        <div className={cx("box-user")}>
-          <div className={cx("box-user-img")}>
-            <img src="https://i.pinimg.com/originals/1c/1d/7b/1c1d7b5bb78ab62b5c025b22be9c2ea0.jpg"></img>
-          </div>
-          <div className={cx("box-decrips")}>
-            <p className={cx("box-decrips-title")}>the anh 28</p>
-            <p className={cx("box-decrips-children")}>
-              the anh 28 entertainment
-            </p>
-          </div>
-        </div>
-      </div>
+      ))}
     </div>
   );
 }

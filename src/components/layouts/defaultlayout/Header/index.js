@@ -1,6 +1,10 @@
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import classNames from "classnames/bind";
 import styles from "./Header.module.scss";
+import Dangnhap from "../../../../Page/Login/Dangnhap/Dangnhap";
+import Login_email from "../../../../Page/Login/Login_email/Login_email";
+import Dangky from "../../../../Page/Login/subscribe_page/subscribe";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleXmark,
@@ -10,12 +14,48 @@ import {
   faMessage,
   faUser,
   faPlus,
+  faL,
 } from "@fortawesome/free-solid-svg-icons";
 const cx = classNames.bind(styles);
+
 function Header() {
+  const headerRef = useRef();
+  const btnRef = useRef();
+  const [check, setcheck] = useState(false);
+  const [check_loggin, setcheck_loggin] = useState(false);
+  const [check_subscribe, setsubscribe] = useState(false);
+  useEffect(() => {
+    if (check_loggin == true) {
+      return setcheck(false);
+    }
+  }, [check_loggin]);
+  const handle = () => {
+    setcheck(true);
+  };
+  const handles = () => {
+    setcheck(false);
+  };
   return (
-    <header className={cx("wapper")}>
-      {/* <div className={cx("wapper-1")}> */}
+    <div ref={headerRef} className={cx("wapper")}>
+      {check_loggin && (
+        <Login_email
+          setcheck={setcheck}
+          setsubscribe={setsubscribe}
+          setcheck_loggin={setcheck_loggin}
+        />
+      )}
+      {check_subscribe && (
+        <Dangky setcheck={setcheck} setsubscribe={setsubscribe} />
+      )}
+      {check && (
+        <Dangnhap
+          setcheck={setcheck}
+          setsubscribe={setsubscribe}
+          check_login={setcheck_loggin}
+          btnicon={handles}
+        />
+      )}
+
       <Link to="/">
         <div className={cx("logo")}>
           <img
@@ -50,9 +90,11 @@ function Header() {
             Tải lên
           </span>
         </Link>
-        <Link className={cx("button-login")} to="/Login">
+
+        <button ref={btnRef} onClick={handle} className={cx("button-login")}>
           Đăng Nhập
-        </Link>
+        </button>
+
         {false && (
           <>
             <button className={cx("btn-icon-message")}>
@@ -67,8 +109,7 @@ function Header() {
           </>
         )}
       </div>
-      {/* </div> */}
-    </header>
+    </div>
   );
 }
 export default Header;
