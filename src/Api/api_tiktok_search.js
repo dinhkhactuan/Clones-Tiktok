@@ -6,11 +6,9 @@ async function Get_api_search(param) {
       `${variables.https}api/users/search?q=f&type=less`
     );
     const datas = Data.data.data;
-    console.log(datas);
     return datas;
   } catch (error) {
     console.log(error);
   }
 }
-Get_api_search().then((res) => console.log(res));
 export default Get_api_search;

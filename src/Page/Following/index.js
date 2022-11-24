@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import classNames from "classnames/bind";
 import styles from "./Following.module.scss";
-import data from "../../Api/api_tiktok";
 import Dangnhap from "../Login/Dangnhap/Dangnhap";
+import Get_api_follow from "../../Api/Follow/Get_api_follow";
 const cx = classNames.bind(styles);
 function Following() {
   const [check, setcheck] = useState(false);
   const [Data, setData] = useState([]);
   useEffect(() => {
-    data().then((res) => setData(res));
+    Get_api_follow(1).then((data) => console.log(data));
   }, []);
   return (
     <div className={cx("box-container")}>

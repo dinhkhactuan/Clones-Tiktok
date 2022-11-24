@@ -101,3 +101,12 @@ input {
     cursor: pointer;
   }
 }
+.notification {
+  position: relative;
+  &::before {
+    content: "vui long nhap dung";
+    position: absolute;
+    right: 0;
+    display: none;
+  }
+}

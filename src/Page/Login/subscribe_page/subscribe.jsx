@@ -1,22 +1,33 @@
-import { useRef } from "react";
-import { useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faClose } from "@fortawesome/free-solid-svg-icons";
 import classNames from "classnames/bind";
 import styles from "./subscribe.module.scss";
 import Post_register from "../../../Api/Auth/Post_Register_user";
-import { useState } from "react";
+
 const cx = classNames.bind(styles);
-function Dangky({ setsubscribe, setcheck }) {
+function Dangky({ setsubscribe, setcheck, Tranfer_dangky }) {
+  const [token, setToken] = useState();
+  const [newUser, setNewUser] = useState();
   const Email = useRef();
   const Password = useRef();
   const CheckPass = useRef();
+
   useEffect(() => {}, []);
   const postdata = () => {
     const email = Email.current.value;
     const password = Password.current.value;
     const checkpass = CheckPass.current.value;
-    Post_register(email, password, checkpass).then((data) => console.log(data));
+
+    if (password !== checkpass) {
+      return console.log("loi");
+    }
+    Post_register(email, password).then((res) => {
+      setNewUser(res.data);
+      setToken(res.meta.token);
+      Tranfer_dangky(res);
+    });
+    setsubscribe(false);
   };
   return (
     <div className={cx("subscribe")}>
@@ -43,16 +54,23 @@ function Dangky({ setsubscribe, setcheck }) {
           <div className={cx("subscribe_content_lable")}>
             <label>Đăng ký bằng email</label>
           </div>
-          <input name="email" ref={Email} placeholder="Email của bạn" />
+          <input
+            type={"email"}
+            name="email"
+            ref={Email}
+            placeholder="Email của bạn"
+          />
           <label>Nhập mật khẩu của bạn</label>
           <input
             name="password"
+            type={"password"}
             ref={Password}
             placeholder="Nhập mật khẩu gồm 6 chữ số"
           />
-          <label>Xác nhận lại mật khẩu</label>
+          <label className={cx("notification")}>Xác nhận lại mật khẩu</label>
           <input
             name="checkpass"
+            type={"password"}
             ref={CheckPass}
             placeholder="Xác nhận lại mật khẩu"
           />

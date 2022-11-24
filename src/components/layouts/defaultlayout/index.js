@@ -12,7 +12,6 @@ function defaultLayout({ children }) {
       <div className={cx("body")}>
         <div className={cx("content")}>
           <Sidebar />
-
           <div className={cx("conten")}>{children}</div>
         </div>
       </div>

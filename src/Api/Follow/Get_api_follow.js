@@ -5,8 +5,8 @@ async function Get_api_follow(param) {
     const Data = await axios.get(
       `${variables.https}api/me/followings?page=${param}`
     );
-    const datas = Data;
-    return datas;
+    console.log(Data);
+    return Data;
   } catch (error) {
     console.log(error);
   }

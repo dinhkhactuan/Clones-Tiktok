@@ -1,20 +1,13 @@
 import axios from "axios";
 import { variables } from "../../Public_variable/Variable";
-async function Post_register(email, pass, checkpass) {
+async function Post_register(email, password) {
   try {
-    console.log(email);
-    console.log(pass);
-    console.log(checkpass);
-    const Data = await axios.post(`${variables.https}/api/auth/register`, {
+    const Data = await axios.post(`${variables.https}api/auth/register`, {
+      type: "email",
       email,
-      password: pass,
-      checkpass,
+      password,
     });
-    console.log(email);
-    console.log(pass);
-    console.log(checkpass);
-    console.log(Data);
-    return Data;
+    return Data.data;
   } catch (error) {
     console.log(error);
   }

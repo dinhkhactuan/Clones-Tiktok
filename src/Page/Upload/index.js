@@ -1,6 +1,7 @@
 import Header from "../../components/layouts/defaultlayout/Header";
 import classNames from "classnames/bind";
 import styles from "./Upload.module.scss";
+import { useRef, useState } from "react";
 const cx = classNames.bind(styles);
 function Upload() {
   return (

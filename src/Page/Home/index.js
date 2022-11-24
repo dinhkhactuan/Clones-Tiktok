@@ -15,7 +15,7 @@ function Home() {
     Get_suggested_users_list(1, 20).then((res) => {
       setdatas(res.data);
     });
-    Get_api_search().then((res) => console.log(res));
+    // Get_api_search().then((res) => console.log(res));
   }, []);
   return (
     <>
