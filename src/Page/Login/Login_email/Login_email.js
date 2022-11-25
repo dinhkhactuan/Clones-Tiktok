@@ -57,7 +57,11 @@ function Login_email({
             <span>Đăng nhập bằng email hoặc TikTok ID</span>
           </div>
           <input ref={Email} placeholder="email của bạn" />
-          <input ref={Password} placeholder="Nhập mật khẩu gồm 6 chữ số" />
+          <input
+            type="password"
+            ref={Password}
+            placeholder="Nhập mật khẩu gồm 6 chữ số"
+          />
           <p>Đăng nhập với Mật khẩu</p>
           <button onClick={OnLogin}>Đăng nhập</button>
           <span className={cx("darw")}></span>
