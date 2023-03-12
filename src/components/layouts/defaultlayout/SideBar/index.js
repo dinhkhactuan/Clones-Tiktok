@@ -34,7 +34,7 @@ function Sidebar() {
   const handles = () => {
     setcheck(false);
   };
-
+  console.log(data);
   return (
     <>
       {check && <Dangnhap close={handles} />}
@@ -80,29 +80,29 @@ function Sidebar() {
           </Button_login>
         )}
         <span className={cx("defiant")}></span>
+        <div className={cx("Side-Bar-users")}>
+          <p className={cx("Side-Bar-users-text")}>Tài khoản được đề xuất</p>
+        </div>
         {data.map((data, index) => (
-          <div className={cx("Side-Bar-users")}>
-            <p className={cx("Side-Bar-users-text")}>Tài khoản được đề xuất</p>
-            <div className={cx("Side-Bar-users-content")}>
-              <div className={cx("Side-Bar-users-content-box")}>
-                <img
-                  className={cx("Side-Bar-users-content-img")}
-                  src={data.avata}
-                ></img>
-              </div>
-              <div>
-                <p className={cx("Side-Bar-users-content-text")}>
-                  Thế anh 28 Entertainment
-                </p>
-                <p
-                  className={cx(
-                    "Side-Bar-users-content-text2",
-                    "Side-Bar-users-content-text"
-                  )}
-                >
-                  Thế anh 28 Entertainment
-                </p>
-              </div>
+          <div className={cx("Side-Bar-users-content")}>
+            <div className={cx("Side-Bar-users-content-box")}>
+              <img
+                className={cx("Side-Bar-users-content-img")}
+                src={data.avatar}
+              ></img>
+            </div>
+            <div>
+              <p className={cx("Side-Bar-users-content-text")}>
+                {data.nickname}
+              </p>
+              <p
+                className={cx(
+                  "Side-Bar-users-content-text2",
+                  "Side-Bar-users-content-text"
+                )}
+              >
+                {data.nickname}
+              </p>
             </div>
           </div>
         ))}
@@ -118,7 +118,7 @@ function Sidebar() {
             </div>
             <div>
               <p className={cx("Side-Bar-users-content-text")}>
-                Thế anh 28 Entertainment
+                {data.nickname}
               </p>
               <p
                 className={cx(
@@ -126,7 +126,7 @@ function Sidebar() {
                   "Side-Bar-users-content-text"
                 )}
               >
-                Thế anh 28 Entertainment
+                {}
               </p>
             </div>
           </div>
@@ -134,15 +134,17 @@ function Sidebar() {
         <span className={cx("defiant")}></span>
         <div className={cx("Side-Bar-tag")}>
           <p>Khám Phá</p>
-          <div className={cx("Side-Bar-tag-box")}>
-            <span className={cx("Side-Bar-tag-box-text")}>
-              <FontAwesomeIcon
-                className={cx("Side-Bar-tag-box-text-icon")}
-                icon={faTag}
-              />{" "}
-              mtp
-            </span>
-          </div>
+          {data.map((data) => (
+            <div className={cx("Side-Bar-tag-box")}>
+              <span className={cx("Side-Bar-tag-box-text")}>
+                <FontAwesomeIcon
+                  className={cx("Side-Bar-tag-box-text-icon")}
+                  icon={faTag}
+                />{" "}
+                {data.nickname}
+              </span>
+            </div>
+          ))}
         </div>
       </div>
     </>

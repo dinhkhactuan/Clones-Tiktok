@@ -140,11 +140,13 @@ select {
     height: 48px;
     text-decoration: none;
     border-color: #ccc;
+    &:hover {
+      color: red;
+    }
   }
   &_btn2 {
     width: 164px;
     border-color: #ccc;
-
     margin-right: 16px;
     background-color: #ddd;
     color: #ccc;
@@ -160,4 +162,12 @@ select {
     height: 48px;
     text-decoration: none;
   }
+}
+.checkbox {
+  font-size: 18px;
+  margin: 5px;
+}
+.active {
+  background-color: red;
+  color: #000;
 }

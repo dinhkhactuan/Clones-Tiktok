@@ -4,6 +4,21 @@ import styles from "./Upload.module.scss";
 import { useRef, useState } from "react";
 const cx = classNames.bind(styles);
 function Upload() {
+  const Ref = useRef();
+  const btn = useRef();
+  const input = useRef();
+  const fhandleSelect = () => {
+    const options = Ref.current.options[Ref.current.value].text;
+  };
+  const data_video = () => {
+    console.log(input.current.files);
+    if (input.current.files) {
+      console.log(btn.current);
+    }
+  };
+  const summit_video = () => {
+    console.log(btn.current);
+  };
   return (
     <div>
       <Header />
@@ -33,9 +48,12 @@ function Upload() {
             <p className={cx("upload_content-box-text1", "text")}>
               Nhỏ hơn 2 GB
             </p>
-            <button className={cx("upload_content-box-btn")}>
-              Chọn tập tin
-            </button>
+            <input
+              ref={input}
+              onChange={data_video}
+              type="file"
+              className={cx("upload_content-box-btn")}
+            />
           </div>
           <div className={cx("upload_content-box-decrips")}>
             <div className={cx("upload_content-box-decrips_1")}>
@@ -45,6 +63,7 @@ function Upload() {
                 </span>
                 <input
                   className={cx("upload_content-box-decrips_text_input1")}
+                  name={"chuthich"}
                 ></input>
               </div>
               <div className={cx("upload_content-box-decrips_contain")}>
@@ -57,11 +76,36 @@ function Upload() {
                 ></input>
               </div>
               <div className={cx("upload_content-box-decrips_contain")}>
-                <select>
-                  <option>Công Khai</option>
-                  <option>Bạn bè</option>
-                  <option>Riêng tư</option>
+                <select
+                  onClick={fhandleSelect}
+                  ref={Ref}
+                  className={cx("data_select")}
+                >
+                  <option value={"0"}>Công Khai</option>
+                  <option value={"1"}>Bạn bè</option>
+                  <option value={"2"}>Riêng tư</option>
                 </select>
+              </div>
+              <div>
+                <p>cho phép người dùng</p>
+                <input
+                  checked="checked"
+                  type="checkbox"
+                  className={cx("checkbox")}
+                />{" "}
+                bạn bè
+                <input
+                  checked="checked"
+                  type="checkbox"
+                  className={cx("checkbox")}
+                />{" "}
+                Duet
+                <input
+                  checked="checked"
+                  type="checkbox"
+                  className={cx("checkbox")}
+                />{" "}
+                Stitch
               </div>
               <div className={cx("upload_content-box-decrips_resolve")}>
                 <button
@@ -70,6 +114,8 @@ function Upload() {
                   Hủy bỏ
                 </button>
                 <button
+                  ref={btn}
+                  onClick={summit_video}
                   className={cx("upload_content-box-decrips_resolve_btn2")}
                 >
                   Đăng
